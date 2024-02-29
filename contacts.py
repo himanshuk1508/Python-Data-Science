@@ -22,5 +22,5 @@ while True:
             contacts[name]=numbers
             print(f'👍 {name} added to contatcs')
             print('-'*20)
-        
+
 
