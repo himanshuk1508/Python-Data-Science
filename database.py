@@ -22,6 +22,17 @@ class Message(Base):
     message= Column(String(255))
     created_at= Column(DateTime, default=datetime.now)
 
+#utility function
+def get_db():
+    engine= create_engine('swlite:///example.db')
+    return sessionmaker(bind=engine)()
+
+def save_to_db(object):
+    db = get_db()  # open databse
+    db.add(object) # insert object
+    db.commit()    # save changes
+    db.close()     # close extension 
+
 #create database
 if __name__ == "__main__":
     engine= create_engine('sqlite:///example.db')
